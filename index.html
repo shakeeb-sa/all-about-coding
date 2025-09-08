@@ -7,42 +7,39 @@
     <style>
       body {
         font-family: Arial, sans-serif;
-        background-color: #02343F;
+        background-color: #F0EDCC;
         margin: 0;
         padding: 0;
       }
-      header {
-        text-align: center;
-        /* Center the image */
-        padding: 20px;
-        /* Add some padding */
-        background-color: #02343F;
-        /* Optional background color */
-      }
-      .header-img {
-        max-width: 100%;
-        /* Make image responsive */
-        height: auto;
-        /* Maintain aspect ratio */
-        max-height: 200px;
-        /* Optional: Limit image height */
-        border-radius: 20px;
-      }
       section {
-        margin: 20px;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        background-color: #fff;
+        width: 70%;
+        /* Keeps the section centered and proportional */
+        max-width: 800px;
+        /* Limits maximum width for better readability on large screens */
+        margin: 20px auto;
+        /* Centers the section horizontally with vertical spacing */
+        padding: 20px;
+        /* Adds more padding for better spacing inside */
+        border: 2px solid #bbb;
+        /* Slightly thicker border with a softer color for elegance */
+        border-radius: 12px;
+        /* Rounded corners for a modern look */
+        background-color: #F0EDCC;
+        /* Consistent background color */
         max-height: 400px;
-        /* Adjust as needed */
-        overflow-y: scroll;
-        /* Always show vertical scrollbar */
-        padding: 15px;
-        border: 1px solid #ccc;
-        margin-bottom: 20px;
-        background: #02343F;
-        border-radius: 8px;
+        /* Keeps height manageable, with scroll if content overflows */
+        overflow-y: auto;
+        /* Adds scrollbar only when needed for better UX */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        /* Subtle shadow for depth */
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+        /* Smooth hover effects */
+      }
+      section:hover {
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        /* Slight lift effect on hover */
+        transform: translateY(-2px);
+        /* Slight lift for interactivity */
       }
       .section-title {
         font-size: 24px;
@@ -50,9 +47,16 @@
         color: #333;
         text-align: center;
       }
-      .video-links {
-        list-style: none;
-        padding: 0;
+      .video-links li {
+        display: flex;
+        flex-direction: column;
+        /* Stack image and title vertically */
+        align-items: center;
+        /* Center items horizontally */
+        text-align: center;
+        /* Center text inside the divs if needed */
+        margin-bottom: 20px;
+        /* Keep your spacing */
       }
       .video-links li {
         margin-bottom: 20px;
@@ -61,7 +65,7 @@
       }
       .video-links a {
         text-decoration: none;
-        color: #F0EDCC;
+        color: #02343F;
         font-size: 16px;
         margin-left: 10px;
         line-height: 1.5;
@@ -70,8 +74,8 @@
         text-decoration: underline;
       }
       .thumbnail {
-        width: 200px;
-        height: 120px;
+        width: 280px;
+        height: 200px;
         object-fit: cover;
         border-radius: 8px;
       }
@@ -84,170 +88,243 @@
         margin-bottom: 5px;
       }
       .original-title {
-        text-align: center;
-        color: #02343F;
-        /* White text */
-        font-weight: bold;
-        /* Bold text */
-        background-color: #F0EDCC;
-      }
-      /* Table of Contents Styling */
-      .toc {
-        background-color: #F0EDCC;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        position: relative;
-        top: 20px;
-        width: 200px;
-        margin: 50px auto;
-        text-align: center;
-      }
-      .toc h2 {
-        margin-top: 0;
-        color: #02343F;
-        font-size: 1.5em;
-      }
-      .toc-button {
         display: block;
-        width: 100%;
-        height: 50%;
-        padding: 10px;
-        margin: 10px 0;
-        border: none;
-        border-radius: 5px;
-        font-size: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s, transform 0.2s;
+        /* Ensures it behaves like a block element if needed */
+        text-align: center;
+        color: #F0EDCC;
+        /* Light cream color for text */
         font-weight: bold;
-      }
-      .js-button {
         background-color: #02343F;
-        /* JavaScript yellow */
-        color: #fff;
-        font-size: 10px
+        /* Deep blue background */
+        padding: 15px 20px;
+        /* Increased padding for better spacing */
+        font-size: 1em;
+        /* Larger font size for emphasis */
+        border-radius: 8px;
+        /* Rounded corners for a modern look */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        /* Subtle shadow for depth */
+        margin: 20px auto;
+        /* Centered with some vertical margin */
+        max-width: 400px;
+        /* Optional: limit width for readability on large screens */
+        transition: background-color 0.3s, transform 0.3s;
+        /* Smooth hover effects */
+        overflow: hidden;
       }
-      .js-button:hover {
-        transform: translateY(-3px);
-      }
-      .css-button {
-        background-color: #02343F;
-        /* CSS blue */
-        color: #fff;
-        font-size: 10px
-      }
-      .css-button:hover {
-        transform: translateY(-3px);
-      }
-      .html-button {
-        background-color: #02343F;
-        color: #fff;
-        font-size: 10px
-      }
-      .html-button:hover {
-        transform: translateY(-3px);
-      }
-      .other-button {
-        background-color: #02343F;
-        color: #fff;
-        font-size: 10px
-      }
-      .other-button:hover {
-        transform: translateY(-3px);
-      }
-      .docker-button {
-        background-color: #02343F;
-        color: #fff;
-        font-size: 10px
-      }
-      .docker-button:hover {
-        transform: translateY(-3px);
-      }
-      .mern-stack-button {
-        background-color: #02343F;
-        color: #fff;
-        font-size: 10px
-      }
-      .mern-stack-button:hover {
-        transform: translateY(-3px);
-      }
-      .web-development-button {
-        background-color: #02343F;
-        color: #fff;
-        font-size: 10px
-      }
-      .web-development-button:hover {
-        transform: translateY(-3px);
-      }
-      .syntax-and-coding-button {
-        background-color: #02343F;
-        color: #fff;
-        font-size: 10px
-      }
-      .syntax-and-coding-button:hover {
-        transform: translateY(-3px);
-      }
-      .devops-button {
-        background-color: #02343F;
-        color: #fff;
-        font-size: 10px
-      }
-      .devops-button:hover {
-        transform: translateY(-3px);
-      }
-      .api-button {
-        background-color: #02343F;
-        color: #fff;
-        font-size: 10px
-      }
-      .api-button:hover {
-        transform: translateY(-3px);
-      }
-      .git-and-github-button {
-        background-color: #02343F;
-        color: #fff;
-        font-size: 10px
-      }
-      .git-and-github-button:hover {
-        transform: translateY(-3px);
-      }
-      .linux-button {
-        background-color: #02343F;
-        color: #fff;
-        font-size: 10px
-      }
-      .linux-button:hover {
-        transform: translateY(-3px);
+      .original-title:hover {
+        /* Slightly lighter blue on hover */
+        transform: translateY(-5px);
+        /* Slight lift effect on hover */
       }
       /* Smooth scrolling */
       html {
         scroll-behavior: smooth;
       }
+      /* Navbar styles */
+      .navbar {
+        background-color: #02343F;
+        padding: 12px 20px;
+        position: sticky;
+        top: 0;
+        width: 100%;
+        z-index: 999;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        transition: background-color 0.3s ease;
+      }
+      .navbar-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+        padding: 0;
+      }
+      /* Style individual links for a cleaner look */
+      .nav-link {
+        color: #F0EDCC;
+        /* Light Cream */
+        text-decoration: none;
+        font-weight: 600;
+        padding: 10px 16px;
+        border-radius: 6px;
+        font-size: 14px;
+        transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+        cursor: pointer;
+        position: relative;
+      }
+      /* Add a hover effect with background color and slight lift */
+      .nav-link:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        color: #02343F;
+        background: #F0EDCC;
+      }
+      /* Optional: Active link styling to indicate current section */
+      .nav-link:active,
+      .nav-link:focus {
+        outline: none;
+        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+      }
+      /* Replace nav1 with .nav1 */
+      .nav1 {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        background-color: #02343F;
+        padding: 1rem 2rem;
+        z-index: 999;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(8px);
+        transition: all 0.3s ease;
+      }
+      /* Navigation list styling */
+      .nav1 ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      /* List items */
+      .nav1 li {
+        margin: 0 1.5rem;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      /* Hover effect for list items */
+      .nav1 li:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      /* Navigation links */
+      .nav1 a {
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 600;
+        padding: 0.75rem 1.2rem;
+        border-radius: 8px;
+        transition: background-color 0.3s, color 0.3s, box-shadow 0.3s, transform 0.2s;
+        display: inline-block;
+      }
+      /* Hover and focus states for links */
+      .nav1 a:hover,
+      .nav1 a:focus {
+        background-color: #F0EDCC;
+        color: #02343F;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transform: translateY(-2px);
+        outline: none;
+        /* remove default outline for cleaner look */
+      }
+      /* Responsive styles for very small screens */
+      @media (max-width: 600px) {
+        .nav1 {
+          padding: 0.75rem 1rem;
+        }
+        .nav1 ul {
+          flex-direction: column;
+        }
+        .nav1 li {
+          margin: 0.5rem 0;
+        }
+        .nav1 a {
+          padding: 0.75rem 1rem;
+        }
+      }
+      footer {
+        background-color: #02343F;
+        color: #F0EDCC;
+        padding: 2rem 1.5rem;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        line-height: 1.6;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+        position: relative;
+        z-index: 10;
+      }
+      /* Container for footer sections */
+      .footer-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      /* Individual footer sections */
+      .footer-section {
+        flex: 1 1 200px;
+        margin: 1rem;
+        min-width: 200px;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .footer-section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+      /* Heading styles */
+      .footer-section h3 {
+        margin-bottom: 1rem;
+        font-size: 1.3rem;
+        font-weight: 700;
+        border-bottom: 3px solid #F0EDCC;
+        padding-bottom: 0.5rem;
+        letter-spacing: 1px;
+      }
+      /* Responsive adjustments */
+      @media(max-width: 768px) .footer-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+      }
+      .footer-section {
+        flex: 1 1 100%;
+        margin: 1rem 0;
+        text-align: center;
+      }
+      a {
+        color: #F0EDCC;
+      }
     </style>
   </head>
   <body>
     <header>
-      <img src="https://i.postimg.cc/VvVLbSFC/Picsart-25-08-24-22-26-27-742.jpg" alt="Header Image" class="header-img">
-    </header>
-    <div class="container">
-      <div class="toc">
-        <h2>Table of Contents</h2>
-        <button class="toc-button js-button" onclick="scrollToSection('js-section')">JavaScript Section</button>
-        <button class="toc-button css-button" onclick="scrollToSection('css-section')">CSS Section</button>
-        <button class="toc-button html-button" onclick="scrollToSection('html-section')">HTML Section</button>
-        <button class="toc-button other-button" onclick="scrollToSection('other-section')">Other Section</button>
-        <button class="toc-button docker-button" onclick="scrollToSection('docker-section')">Docker Section</button>
-        <button class="toc-button mern-stack-button" onclick="scrollToSection('mern-stack-section')">MERN Stack Section</button>
-        <button class="toc-button web-development-button" onclick="scrollToSection('web-development-section')">Web Development</button>
-        <button class="toc-button syntax-and-coding-button" onclick="scrollToSection('syntax-and-coding-section')">Syntax and Coding</button>
-        <button class="toc-button devops-button" onclick="scrollToSection('devops-section')">DevOps</button>
-        <button class="toc-button api-button" onclick="scrollToSection('api-section')">API</button>
-        <button class="toc-button git-and-github-button" onclick="scrollToSection('git-and-github-section')">Git and GitHub Section</button>
-        <button class="toc-button linux-button" onclick="scrollToSection('linux-section')">Linux Section</button>
-      </div>
+
+      <!-- Navigation -->
+      <header>
+        <nav class="nav1">
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#seo-tools">SEO Tools</a></li>
+            <li><a href="#resource-tools">Resource</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </header>
+      <nav class="navbar">
+        <div class="navbar-container">
+          <a href="#js-title" class="nav-link">JavaScript</a>
+          <a href="#css-title" class="nav-link">CSS</a>
+          <a href="#html-title" class="nav-link">HTML</a>
+          <a href="#other-title" class="nav-link">Other</a>
+          <a href="#docker-title" class="nav-link">Docker</a>
+          <a href="#mern-stack-title" class="nav-link">MERN Stack</a>
+          <a href="#web-development-title" class="nav-link">Web Dev</a>
+          <a href="#syntax-and-coding-title" class="nav-link">Syntax and Coding</a>
+          <a href="#devops-title" class="nav-link">DevOps</a>
+          <a href="#api-title" class="nav-link">API</a>
+          <a href="#git-and-github-title" class="nav-link">Git & GitHub</a>
+          <a href="#linux-title" class="nav-link">Linux</a>
+        </div>
+      </nav>
 
       <!-- JavaScript Section -->
-      <section class="original-title">JavaScript</section>
+      <section class="original-title" id="js-title">JavaScript</section>
       <section id="js-section">
         <div class="section-title"> </div>
         <ul class="video-links">
@@ -343,7 +420,7 @@
       </section>
 
       <!-- CSS Section -->
-      <section class="original-title">CSS</section>
+      <section class="original-title" id="css-title">CSS</section>
       <section id="css-section">
         <div class="section-title"> </div>
         <ul class="video-links">
@@ -457,7 +534,7 @@
       </section>
 
       <!-- HTML Section -->
-      <section class="original-title">HTML</section>
+      <section class="original-title" id="html-title">HTML</section>
       <section id="html-section">
         <div class="section-title"> </div>
         <ul class="video-links">
@@ -497,7 +574,7 @@
           <!-- Add more HTML videos as needed -->
         </ul>
       </section>
-      <section class="original-title">Other</section>
+      <section class="original-title" id="other-title">Other</section>
       <section id="other-section">
         <div class="section-title"> </div>
         <ul class="video-links">
@@ -508,6 +585,11 @@
               <img src="https://img.youtube.com/vi/gxHXPmePnvo/hqdefault.jpg" alt="Thumbnail 3" class="thumbnail">
               <div class="video-title">🚀🔥 Complete Backend Development in One Day (2025) | Hindi | Notes | GitHub | Free Certification</div>
             </a>
+          <li>
+            <a href="https://youtu.be/yN2yBmSHduI?si=Ut90NcMZG4SMiNcX" target="_blank">
+              <img src="https://img.youtube.com/vi/yN2yBmSHduI/hqdefault.jpg" alt="Thumbnail 3" class="thumbnail">
+              <div class="video-title">5 JavaScript Mistakes Every Beginner Must Avoid 🔥</div>
+            </a>
           </li>
           <li>
             <a href="https://youtu.be/aiZN2ncIItM?si=eCnwRV9tiF9kwzmV" target="_blank">
@@ -517,10 +599,55 @@
             </a>
           </li>
           <li>
+            <a href="https://youtu.be/WO4M_A_mtBI?si=oUlZZ_JRCuj_oxBx" target="_blank">
+              <img src="https://img.youtube.com/vi/WO4M_A_mtBI/hqdefault.jpg" alt="Thumbnail 3" class="thumbnail">
+              <div class="video-title">What is DOS Attack? How You Can Protect Yourself? | DDOS Attack Explained in 5 Minutes
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="https://youtu.be/5QUSeBAMjoo?si=_gPuTAle9uP5liJq" target="_blank">
+              <img src="https://img.youtube.com/vi/5QUSeBAMjoo/hqdefault.jpg" alt="Thumbnail 3" class="thumbnail">
+              <div class="video-title">Why so many Coding Languages are created?</div>
+            </a>
+          </li>
+          <li>
+            <a href="https://youtu.be/b7ttYWrJzCI?si=CKOkZt0rJrjRygy-" target="_blank">
+              <img src="https://img.youtube.com/vi/b7ttYWrJzCI/hqdefault.jpg" alt="Thumbnail 3" class="thumbnail">
+              <div class="video-title">You can do much more with AI 🔥</div>
+            </a>
+          </li>
+          <li>
+            <a href="https://youtu.be/5AhLRjkFeZk?si=5TXRdK7v_vCUX-b0" target="_blank">
+              <img src="https://img.youtube.com/vi/5AhLRjkFeZk/hqdefault.jpg" alt="Thumbnail 3" class="thumbnail">
+              <div class="video-title">5 Mistakes Beginner Web Developers Make (Avoid These)
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="https://youtu.be/9H_rX1vHuoM?si=oP1ykqsNAHyYfQmZ" target="_blank">
+              <img src="https://img.youtube.com/vi/9H_rX1vHuoM/hqdefault.jpg" alt="Thumbnail 3" class="thumbnail">
+              <div class="video-title">DSA v/s Development | What to do for Placements?
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="https://youtu.be/0HyIda5eub8?si=rwuSubKJ2waXxCBw" target="_blank">
+              <img src="https://img.youtube.com/vi/0HyIda5eub8/hqdefault.jpg" alt="Thumbnail 3" class="thumbnail">
+              <div class="video-title">Learn Coding & Get a Job (in 2025) 🔥</div>
+            </a>
+          </li>
+          <li>
             <a href="https://youtu.be/AgyTHzjBS-c?si=ftg9Nb3s6oABDh2N" target="_blank">
               <img src="https://img.youtube.com/vi/AgyTHzjBS-c/hqdefault.jpg" alt="Thumbnail 3" class="thumbnail">
               <div class="video-title">How much Coding to learn for Placements? Data Structure & Algorithms
               </div>
+            </a>
+          </li>
+          <li>
+            <a href="https://youtu.be/zlZ_dupXxE0?si=AR3yIXKtH_AghATp" target="_blank">
+              <img src="https://img.youtube.com/vi/zlZ_dupXxE0/hqdefault.jpg" alt="Thumbnail 3" class="thumbnail">
+              <div class="video-title">How to Hack Password?</div>
             </a>
           </li>
           <li>
@@ -574,7 +701,7 @@
             </a>
           </li>
       </section>
-      <section class="original-title">Docker</section>
+      <section class="original-title" id="docker-title">Docker</section>
       <section id="docker-section">
         <div class="section-title"> </div>
         <ul class="video-links">
@@ -599,7 +726,7 @@
             </a>
           </li>
       </section>
-      <section class="original-title">MERN Stack</section>
+      <section class="original-title" id="mern-stack-title">MERN Stack</section>
       <section id="mern-stack-section">
         <div class="section-title"> </div>
         <ul class="video-links">
@@ -630,7 +757,7 @@
             </a>
           </li>
       </section>
-      <section class="original-title">Web Development</section>
+      <section class="original-title" id="web-development-title">Web Development</section>
       <section id="web-development-section">
         <div class="section-title"> </div>
         <ul class="video-links">
@@ -648,8 +775,22 @@
               <div class="video-title">Introduction to Web Development | World's most premium Web Development Course | Lecture 0 (Reupload)</div>
             </a>
           </li>
+          </li>
+          <li>
+            <a href="https://youtu.be/DbRXv5TXMEE?si=fphSHmMQ3DoxGW2s" target="_blank">
+              <img src="https://img.youtube.com/vi/DbRXv5TXMEE/hqdefault.jpg" alt="Thumbnail 3" class="thumbnail">
+              <div class="video-title">Front End Developer RoadMap - for Jobs in 2024</div>
+            </a>
+          </li>
+          <li>
+            <a href="https://youtu.be/E_F8MwcVgSA?si=5KCP4AbrHV3ZPZzc" target="_blank">
+              <img src="https://img.youtube.com/vi/E_F8MwcVgSA/hqdefault.jpg" alt="Thumbnail 3" class="thumbnail">
+              <div class="video-title">Frontend Developer Vs. Backend Developer😳🫨||How to become Software Developer||Salary,Company,Package
+              </div>
+            </a>
+          </li>
       </section>
-      <section class="original-title">Syntax and Coding</section>
+      <section class="original-title" id="syntax-and-coding-title">Syntax and Coding</section>
       <section id="syntax-and-coding-section">
         <div class="section-title"> </div>
         <ul class="video-links">
@@ -698,7 +839,7 @@
             </a>
           </li>
       </section>
-      <section class="original-title">DevOps</section>
+      <section class="original-title" id="devops-title">DevOps</section>
       <section id="devops-section">
         <div class="section-title"> </div>
         <ul class="video-links">
@@ -717,7 +858,7 @@
             </a>
           </li>
       </section>
-      <section class="original-title">API</section>
+      <section class="original-title" id="api-title">API</section>
       <section id="api-section">
         <div class="section-title"> </div>
         <ul class="video-links">
@@ -736,7 +877,7 @@
             </a>
           </li>
       </section>
-      <section class="original-title">Git and Github</section>
+      <section class="original-title" id="git-and-github-title">Git and GitHub</section>
       <section id="git-and-github-section">
         <div class="section-title"> </div>
         <ul class="video-links">
@@ -749,7 +890,7 @@
             </a>
           </li>
       </section>
-      <section class="original-title">Linux</section>
+      <section class="original-title" id="linux-title">Linux</section>
       <section id="linux-section">
         <div class="section-title"> </div>
         <ul class="video-links">
@@ -787,6 +928,17 @@
           </li>
         </ul>
       </section>
+      <footer>
+        <div class="footer-container">
+          <div class="footer-section">
+            <h3>Contact</h3>
+            <p>Email: shakeeb.sa.ahmed@gmail.com</p>
+            <p>Github: <a href="https://github.com/shakeeb-sa/" target="_blank" rel="noopener noreferrer">https://github.com/shakeeb-sa/</a></p>
+            <p>LinkedIn: <a href="https://pk.linkedin.com/in/shakeeb-ahmed-034093370" target="_blank" rel="noopener noreferrer">https://pk.linkedin.com/in/shakeeb-ahmed-034093370</a></p>
+          </div>
+        </div>
+        <p style="text-align:center; margin-top:1rem;">Created by Shakeeb Ahmed</p>
+      </footer>
       <script>
         // JavaScript for smooth scrolling to sections
         function scrollToSection(sectionId) {
@@ -798,6 +950,6 @@
           }
         }
       </script>
-    </div>
+      </div>
   </body>
 </html>
